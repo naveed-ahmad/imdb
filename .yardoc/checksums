@@ -1,8 +1,0 @@
-lib/imdb/string_extensions.rb d0a3e9391aa5457d3902381943d974cb9627c56c
-lib/imdb/top_250.rb b1fa659c2b6cc2218662fe66398caf36fa4351ed
-lib/imdb/cli.rb 4c9dc503e532bb6348cea85be6a841c0f256886c
-lib/imdb.rb 05b952f1978848353c59b7fa1cdc7bfc6a8da6d0
-lib/imdb/movie_list.rb 939299d45203d4df4a93ae4786463093c4970b55
-lib/imdb/movie.rb 23e8fab0ce7bb796f525939bc9f3e2624e5f7bb2
-lib/imdb/version.rb 68b4d020507f22152f3822ea67c21c6bc4659234
-lib/imdb/search.rb 1830f52e43120b20799bc622b7fdb53f32973193
