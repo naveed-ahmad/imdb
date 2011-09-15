@@ -44,33 +44,33 @@
         <div id='text'>
           <div id='description'>
             <p>
-            Represents a <a href="Movie.html">Movie</a> on IMDB.com
+            Represents a movie or search result from IMDB.com
             </p>
           </div>
           <div id='method-list'>
             <h2>Methods</h2>
             <h3>public class</h3>
             <ol>
-              <li><a href="#M000012">new</a></li>
+              <li><a href="#M000008">new</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000014">cast_member_ids</a></li>
-              <li><a href="#M000013">cast_members</a></li>
-              <li><a href="#M000018">countries</a></li>
-              <li><a href="#M000015">director</a></li>
-              <li><a href="#M000016">genres</a></li>
-              <li><a href="#M000017">languages</a></li>
-              <li><a href="#M000019">length</a></li>
-              <li><a href="#M000025">mpaa_rating</a></li>
-              <li><a href="#M000020">plot</a></li>
-              <li><a href="#M000021">poster</a></li>
-              <li><a href="#M000022">rating</a></li>
-              <li><a href="#M000028">release_date</a></li>
-              <li><a href="#M000024">tagline</a></li>
-              <li><a href="#M000026">title</a></li>
-              <li><a href="#M000023">votes</a></li>
-              <li><a href="#M000027">year</a></li>
+              <li><a href="#M000010">cast_member_ids</a></li>
+              <li><a href="#M000009">cast_members</a></li>
+              <li><a href="#M000014">countries</a></li>
+              <li><a href="#M000011">director</a></li>
+              <li><a href="#M000012">genres</a></li>
+              <li><a href="#M000013">languages</a></li>
+              <li><a href="#M000015">length</a></li>
+              <li><a href="#M000021">mpaa_rating</a></li>
+              <li><a href="#M000016">plot</a></li>
+              <li><a href="#M000017">poster</a></li>
+              <li><a href="#M000018">rating</a></li>
+              <li><a href="#M000024">release_date</a></li>
+              <li><a href="#M000020">tagline</a></li>
+              <li><a href="#M000022">title</a></li>
+              <li><a href="#M000019">votes</a></li>
+              <li><a href="#M000023">year</a></li>
             </ol>
           </div>
           <div id='section'>
@@ -80,31 +80,43 @@
                 <table>
                   <tr class='top-aligned-row context-row'>
                     <td class='context-item-name'>also_known_as</td>
-                    <td class='context-item-value'>[RW]</td>
-                    <td class='context-item-desc'></td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'>
+                      
+                      An array of alternate or international titles, may be empty
+                    </td>
                   </tr>
                   <tr class='top-aligned-row context-row'>
                     <td class='context-item-name'>id</td>
-                    <td class='context-item-value'>[RW]</td>
-                    <td class='context-item-desc'></td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'>
+                      
+                      <a href="Movie.html">Movie</a> ID, as used by IMDB.
+                    </td>
                   </tr>
                   <tr class='top-aligned-row context-row'>
                     <td class='context-item-name'>title</td>
-                    <td class='context-item-value'>[RW]</td>
-                    <td class='context-item-desc'></td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'>
+                      
+                      The official title for this movie
+                    </td>
                   </tr>
                   <tr class='top-aligned-row context-row'>
                     <td class='context-item-name'>url</td>
-                    <td class='context-item-value'>[RW]</td>
-                    <td class='context-item-desc'></td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'>
+                      
+                      The URL to this specific movie
+                    </td>
                   </tr>
                 </table>
               </div>
             </div>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='method public-class' id='method-M000012'>
-                <a name='M000012'></a>
+              <div class='method public-class' id='method-M000008'>
+                <a name='M000008'></a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
                   <span class='arguments'>(imdb_id, title = nil, also_known_as = [])</span>
@@ -122,28 +134,28 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000012-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000008-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000012-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 15</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">imdb_id</span>, <span class="ruby-identifier">title</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">also_known_as</span> = [])&#x000A;      <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">imdb_id</span>&#x000A;      <span class="ruby-ivar">@url</span> = <span class="ruby-node">&quot;http://akas.imdb.com/title/tt#{imdb_id}/combined&quot;</span>&#x000A;      <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">title</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/&quot;/</span>, <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">title</span>&#x000A;      <span class="ruby-ivar">@also_known_as</span> = <span class="ruby-identifier">also_known_as</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000008-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 26</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">imdb_id</span>, <span class="ruby-identifier">title</span> = <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">also_known_as</span> = [])&#x000A;      <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">imdb_id</span>&#x000A;      <span class="ruby-ivar">@url</span> = <span class="ruby-node">&quot;http://akas.imdb.com/title/tt#{imdb_id}/combined&quot;</span>&#x000A;      <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">title</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/&quot;/</span>, <span class="ruby-value str">&quot;&quot;</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">title</span>&#x000A;      <span class="ruby-ivar">@also_known_as</span> = <span class="ruby-identifier">also_known_as</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='method public-instance' id='method-M000014'>
-                <a name='M000014'></a>
+              <div class='method public-instance' id='method-M000010'>
+                <a name='M000010'></a>
                 <div class='synopsis'>
                   <span class='name'>cast_member_ids</span>
                   <span class='arguments'>()</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000010-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000014-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 27</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cast_member_ids</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;table.cast td.nm a&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>[<span class="ruby-value str">'href'</span>].<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">%r{^/name/(.*)/}</span>, <span class="ruby-value str">'\1'</span>) }&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000010-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 38</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cast_member_ids</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;table.cast td.nm a&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>[<span class="ruby-value str">'href'</span>].<span class="ruby-identifier">sub</span>(<span class="ruby-regexp re">%r{^/name/(.*)/}</span>, <span class="ruby-value str">'\1'</span>) }&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000013'>
-                <a name='M000013'></a>
+              <div class='method public-instance' id='method-M000009'>
+                <a name='M000009'></a>
                 <div class='synopsis'>
                   <span class='name'>cast_members</span>
                   <span class='arguments'>()</span>
@@ -154,14 +166,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000013-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000009-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000013-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 23</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cast_members</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;table.cast td.nm a&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000009-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 34</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cast_members</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;table.cast td.nm a&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000018'>
-                <a name='M000018'></a>
+              <div class='method public-instance' id='method-M000014'>
+                <a name='M000014'></a>
                 <div class='synopsis'>
                   <span class='name'>countries</span>
                   <span class='arguments'>()</span>
@@ -172,14 +184,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000018-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000018-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 47</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">countries</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Country:'] ~ a[@href*=/country/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000014-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 58</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">countries</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Country:'] ~ a[@href*=/country/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000015'>
-                <a name='M000015'></a>
+              <div class='method public-instance' id='method-M000011'>
+                <a name='M000011'></a>
                 <div class='synopsis'>
                   <span class='name'>director</span>
                   <span class='arguments'>()</span>
@@ -190,14 +202,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000011-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000015-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 32</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">director</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()^='Director'] ~ a&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000011-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 43</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">director</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()^='Director'] ~ a&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000016'>
-                <a name='M000016'></a>
+              <div class='method public-instance' id='method-M000012'>
+                <a name='M000012'></a>
                 <div class='synopsis'>
                   <span class='name'>genres</span>
                   <span class='arguments'>()</span>
@@ -208,14 +220,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000016-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000012-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000016-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 37</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">genres</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000012-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 48</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">genres</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000017'>
-                <a name='M000017'></a>
+              <div class='method public-instance' id='method-M000013'>
+                <a name='M000013'></a>
                 <div class='synopsis'>
                   <span class='name'>languages</span>
                   <span class='arguments'>()</span>
@@ -226,14 +238,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000017-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000013-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000017-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 42</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">languages</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Language:'] ~ a[@href*=/language/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000013-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 53</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">languages</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Language:'] ~ a[@href*=/language/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword kw">rescue</span> []&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000019'>
-                <a name='M000019'></a>
+              <div class='method public-instance' id='method-M000015'>
+                <a name='M000015'></a>
                 <div class='synopsis'>
                   <span class='name'>length</span>
                   <span class='arguments'>()</span>
@@ -244,14 +256,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000019-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000019-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 52</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">length</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;//h5[text()='Runtime:']/..&quot;</span>).<span class="ruby-identifier">innerHTML</span>[<span class="ruby-regexp re">/\d+ min/</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000015-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 63</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">length</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;//h5[text()='Runtime:']/..&quot;</span>).<span class="ruby-identifier">innerHTML</span>[<span class="ruby-regexp re">/\d+ min/</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000025'>
-                <a name='M000025'></a>
+              <div class='method public-instance' id='method-M000021'>
+                <a name='M000021'></a>
                 <div class='synopsis'>
                   <span class='name'>mpaa_rating</span>
                   <span class='arguments'>()</span>
@@ -262,14 +274,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000025-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000021-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000025-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 88</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mpaa_rating</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='MPAA:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000021-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 99</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">mpaa_rating</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='MPAA:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000020'>
-                <a name='M000020'></a>
+              <div class='method public-instance' id='method-M000016'>
+                <a name='M000016'></a>
                 <div class='synopsis'>
                   <span class='name'>plot</span>
                   <span class='arguments'>()</span>
@@ -280,14 +292,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000020-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000016-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000020-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 57</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">plot</span>&#x000A;      <span class="ruby-identifier">sanitize_plot</span>(<span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Plot:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000016-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 68</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">plot</span>&#x000A;      <span class="ruby-identifier">sanitize_plot</span>(<span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Plot:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000021'>
-                <a name='M000021'></a>
+              <div class='method public-instance' id='method-M000017'>
+                <a name='M000017'></a>
                 <div class='synopsis'>
                   <span class='name'>poster</span>
                   <span class='arguments'>()</span>
@@ -298,14 +310,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000021-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000017-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000021-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 62</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poster</span>&#x000A;      <span class="ruby-identifier">src</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;a[@name='poster'] img&quot;</span>)[<span class="ruby-value str">'src'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">src</span>&#x000A;      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(http:.+@@)/</span>&#x000A;        <span class="ruby-identifier">$1</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.jpg'</span>&#x000A;      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(http:.+?)\.[^\/]+$/</span>&#x000A;        <span class="ruby-identifier">$1</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.jpg'</span>&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000017-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 73</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">poster</span>&#x000A;      <span class="ruby-identifier">src</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;a[@name='poster'] img&quot;</span>)[<span class="ruby-value str">'src'</span>] <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;      <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">src</span>&#x000A;      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(http:.+@@)/</span>&#x000A;        <span class="ruby-identifier">$1</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.jpg'</span>&#x000A;      <span class="ruby-keyword kw">when</span> <span class="ruby-regexp re">/^(http:.+?)\.[^\/]+$/</span>&#x000A;        <span class="ruby-identifier">$1</span> <span class="ruby-operator">+</span> <span class="ruby-value str">'.jpg'</span>&#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000022'>
-                <a name='M000022'></a>
+              <div class='method public-instance' id='method-M000018'>
+                <a name='M000018'></a>
                 <div class='synopsis'>
                   <span class='name'>rating</span>
                   <span class='arguments'>()</span>
@@ -316,14 +328,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000022-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000018-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000022-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 73</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rating</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;.starbar-meta b&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'/'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000018-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 84</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rating</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;.starbar-meta b&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'/'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000028'>
-                <a name='M000028'></a>
+              <div class='method public-instance' id='method-M000024'>
+                <a name='M000024'></a>
                 <div class='synopsis'>
                   <span class='name'>release_date</span>
                   <span class='arguments'>()</span>
@@ -334,14 +346,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000028-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000024-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000028-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 107</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">release_date</span>&#x000A;      <span class="ruby-identifier">sanitize_release_date</span>(<span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">'h5[text()*=Release Date]'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">next_sibling</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000024-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 118</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">release_date</span>&#x000A;      <span class="ruby-identifier">sanitize_release_date</span>(<span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">'h5[text()*=Release Date]'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">next_sibling</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000024'>
-                <a name='M000024'></a>
+              <div class='method public-instance' id='method-M000020'>
+                <a name='M000020'></a>
                 <div class='synopsis'>
                   <span class='name'>tagline</span>
                   <span class='arguments'>()</span>
@@ -352,14 +364,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000024-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000020-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000024-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 83</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tagline</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Tagline:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/&lt;.+&gt;.+&lt;\/.+&gt;/</span>, <span class="ruby-value str">''</span>).<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000020-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 94</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">tagline</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">&quot;h5[text()='Tagline:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/&lt;.+&gt;.+&lt;\/.+&gt;/</span>, <span class="ruby-value str">''</span>).<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000026'>
-                <a name='M000026'></a>
+              <div class='method public-instance' id='method-M000022'>
+                <a name='M000022'></a>
                 <div class='synopsis'>
                   <span class='name'>title</span>
                   <span class='arguments'>(force_refresh = false)</span>
@@ -370,14 +382,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000026-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000022-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000026-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 93</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>(<span class="ruby-identifier">force_refresh</span> = <span class="ruby-keyword kw">false</span>)&#x000A;      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@title</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">force_refresh</span>&#x000A;        <span class="ruby-ivar">@title</span>&#x000A;      <span class="ruby-keyword kw">else</span>&#x000A;        <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;h1&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'&lt;span'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span> &#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000022-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 104</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">title</span>(<span class="ruby-identifier">force_refresh</span> = <span class="ruby-keyword kw">false</span>)&#x000A;      <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@title</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">force_refresh</span>&#x000A;        <span class="ruby-ivar">@title</span>&#x000A;      <span class="ruby-keyword kw">else</span>&#x000A;        <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;h1&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">'&lt;span'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span> &#x000A;      <span class="ruby-keyword kw">end</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000023'>
-                <a name='M000023'></a>
+              <div class='method public-instance' id='method-M000019'>
+                <a name='M000019'></a>
                 <div class='synopsis'>
                   <span class='name'>votes</span>
                   <span class='arguments'>()</span>
@@ -388,14 +400,14 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000023-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000019-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000023-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 78</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">votes</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;#tn15rating .tn15more&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[^\d+]/</span>, <span class="ruby-value str">&quot;&quot;</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000019-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 89</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">votes</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value str">&quot;#tn15rating .tn15more&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp re">/[^\d+]/</span>, <span class="ruby-value str">&quot;&quot;</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-keyword kw">rescue</span> <span class="ruby-keyword kw">nil</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='method public-instance' id='method-M000027'>
-                <a name='M000027'></a>
+              <div class='method public-instance' id='method-M000023'>
+                <a name='M000023'></a>
                 <div class='synopsis'>
                   <span class='name'>year</span>
                   <span class='arguments'>()</span>
@@ -406,10 +418,10 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000027-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000023-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000027-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 102</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">year</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">'a[@href^=&quot;/year/&quot;]'</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">to_i</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000023-source'><span class="ruby-comment cmt"># File lib/imdb/movie.rb, line 113</span>&#x000A;    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">year</span>&#x000A;      <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-value str">'a[@href^=&quot;/year/&quot;]'</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">to_i</span>&#x000A;    <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>
