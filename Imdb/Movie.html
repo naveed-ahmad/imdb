@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>Class: Imdb::Movie</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/imdb/movie.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-cast_member_ids">#cast_member_ids</a>
+    
+    <li><a href="#method-i-cast_members">#cast_members</a>
+    
+    <li><a href="#method-i-countries">#countries</a>
+    
+    <li><a href="#method-i-director">#director</a>
+    
+    <li><a href="#method-i-genres">#genres</a>
+    
+    <li><a href="#method-i-languages">#languages</a>
+    
+    <li><a href="#method-i-length">#length</a>
+    
+    <li><a href="#method-i-mpaa_rating">#mpaa_rating</a>
+    
+    <li><a href="#method-i-plot">#plot</a>
+    
+    <li><a href="#method-i-poster">#poster</a>
+    
+    <li><a href="#method-i-rating">#rating</a>
+    
+    <li><a href="#method-i-release_date">#release_date</a>
+    
+    <li><a href="#method-i-tagline">#tagline</a>
+    
+    <li><a href="#method-i-trailer_url">#trailer_url</a>
+    
+    <li><a href="#method-i-votes">#votes</a>
+    
+    <li><a href="#method-i-year">#year</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../README_rdoc.html">README</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../Imdb.html">Imdb</a>
+  
+    <li><a href="../Imdb/CLI.html">Imdb::CLI</a>
+  
+    <li><a href="../Imdb/Movie.html">Imdb::Movie</a>
+  
+    <li><a href="../Imdb/MovieList.html">Imdb::MovieList</a>
+  
+    <li><a href="../Imdb/Search.html">Imdb::Search</a>
+  
+    <li><a href="../Imdb/StringExtensions.html">Imdb::StringExtensions</a>
+  
+    <li><a href="../Imdb/Top250.html">Imdb::Top250</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Imdb::Movie</h1>
+
+  <div id="description" class="description">
+    
+<p>Represents a <a href="Movie.html">Movie</a> on IMDB.com</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-also_known_as" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">also_known_as</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-id" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">id</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-title" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">title</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-url" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">url</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(imdb_id, title = nil, also_known_as = [])</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize a new IMDB movie object with it’s IMDB id (as a String)</p>
+
+<pre>movie = Imdb::Movie.new(&quot;0095016&quot;)</pre>
+
+<p><a href="Movie.html">Imdb::Movie</a> objects are lazy loading, meaning that
+no HTTP request will be performed when a new object is created. Only when
+you use an accessor that needs the remote data, a HTTP request is made
+(once).</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">imdb_id</span>, <span class="ruby-identifier">title</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">also_known_as</span> = [])
+  <span class="ruby-ivar">@id</span> = <span class="ruby-identifier">imdb_id</span>
+  <span class="ruby-ivar">@url</span> = <span class="ruby-node">&quot;http://akas.imdb.com/title/tt#{imdb_id}/combined&quot;</span>
+  <span class="ruby-ivar">@title</span> = <span class="ruby-identifier">title</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/&quot;/</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">title</span>
+  <span class="ruby-ivar">@also_known_as</span> = <span class="ruby-identifier">also_known_as</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-cast_member_ids" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cast_member_ids</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cast_member_ids-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cast_member_ids</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;table.cast td.nm a&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span> <span class="ruby-identifier">l</span>[<span class="ruby-string">'href'</span>].<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">%r{^/name/(.*)/}</span>, <span class="ruby-string">'\1'</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cast_member_ids-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cast_member_ids-method -->
+
+    
+      <div id="method-i-cast_members" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cast_members</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array with cast members</p>
+          
+
+          
+          <div class="method-source-code" id="cast_members-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cast_members</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;table.cast td.nm a&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword">rescue</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- cast_members-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- cast_members-method -->
+
+    
+      <div id="method-i-countries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">countries</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of countries as strings.</p>
+          
+
+          
+          <div class="method-source-code" id="countries-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">countries</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;h5[text()='Country:'] ~ a[@href*=/country/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword">rescue</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- countries-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- countries-method -->
+
+    
+      <div id="method-i-director" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">director</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of the director</p>
+          
+
+          
+          <div class="method-source-code" id="director-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">director</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;h5[text()^='Director'] ~ a&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword">rescue</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- director-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- director-method -->
+
+    
+      <div id="method-i-genres" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">genres</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of genres (as strings)</p>
+          
+
+          
+          <div class="method-source-code" id="genres-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">genres</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;h5[text()='Genre:'] ~ a[@href*=/Sections/Genres/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword">rescue</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- genres-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- genres-method -->
+
+    
+      <div id="method-i-languages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">languages</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of languages as strings.</p>
+          
+
+          
+          <div class="method-source-code" id="languages-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">languages</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;h5[text()='Language:'] ~ a[@href*=/language/']&quot;</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">link</span><span class="ruby-operator">|</span> <span class="ruby-identifier">link</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> } <span class="ruby-keyword">rescue</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- languages-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- languages-method -->
+
+    
+      <div id="method-i-length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">length</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the duration of the movie in minutes as an integer.</p>
+          
+
+          
+          <div class="method-source-code" id="length-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;//h5[text()='Runtime:']/..&quot;</span>).<span class="ruby-identifier">innerHTML</span>[<span class="ruby-regexp">/\d+ min/</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- length-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- length-method -->
+
+    
+      <div id="method-i-mpaa_rating" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mpaa_rating</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string containing the mpaa rating and reason for rating</p>
+          
+
+          
+          <div class="method-source-code" id="mpaa_rating-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mpaa_rating</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;h5[text()='MPAA:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- mpaa_rating-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- mpaa_rating-method -->
+
+    
+      <div id="method-i-plot" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">plot</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string containing the plot.</p>
+          
+
+          
+          <div class="method-source-code" id="plot-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">plot</span>
+  <span class="ruby-identifier">sanitize_plot</span>(<span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;h5[text()='Plot:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- plot-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- plot-method -->
+
+    
+      <div id="method-i-poster" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">poster</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string containing the URL to the movie poster.</p>
+          
+
+          
+          <div class="method-source-code" id="poster-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">poster</span>
+  <span class="ruby-identifier">src</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-string">&quot;a[@name='poster'] img&quot;</span>)[<span class="ruby-string">'src'</span>] <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">src</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^(http:.+@@)/</span>
+    <span class="ruby-node">$1</span> <span class="ruby-operator">+</span> <span class="ruby-string">'.jpg'</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^(http:.+?)\.[^\/]+$/</span>
+    <span class="ruby-node">$1</span> <span class="ruby-operator">+</span> <span class="ruby-string">'.jpg'</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- poster-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- poster-method -->
+
+    
+      <div id="method-i-rating" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rating</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a float containing the average user rating</p>
+          
+
+          
+          <div class="method-source-code" id="rating-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rating</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-string">&quot;.starbar-meta b&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">'/'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- rating-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- rating-method -->
+
+    
+      <div id="method-i-release_date" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_date</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns release date for the movie.</p>
+          
+
+          
+          <div class="method-source-code" id="release_date-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">release_date</span>
+  <span class="ruby-identifier">sanitize_release_date</span>(<span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">'h5[text()*=Release Date]'</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">next_sibling</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- release_date-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- release_date-method -->
+
+    
+      <div id="method-i-tagline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tagline</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string containing the tagline</p>
+          
+
+          
+          <div class="method-source-code" id="tagline-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tagline</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">&quot;h5[text()='Tagline:'] ~ div&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/&lt;.+&gt;.+&lt;\/.+&gt;/</span>, <span class="ruby-string">''</span>).<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- tagline-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- tagline-method -->
+
+    
+      <div id="method-i-trailer_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trailer_url</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the url to the “Watch a trailer” page</p>
+          
+
+          
+          <div class="method-source-code" id="trailer_url-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">trailer_url</span>
+  <span class="ruby-string">'http://imdb.com'</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-string">&quot;a[@href*=/video/screenplay/]&quot;</span>)[<span class="ruby-string">&quot;href&quot;</span>] <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- trailer_url-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- trailer_url-method -->
+
+    
+      <div id="method-i-votes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">votes</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an int containing the number of user ratings</p>
+          
+
+          
+          <div class="method-source-code" id="votes-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">votes</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">at</span>(<span class="ruby-node">&quot;#tn15rating .tn15more&quot;</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">strip</span>.<span class="ruby-identifier">imdb_unescape_html</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[^\d+]/</span>, <span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- votes-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- votes-method -->
+
+    
+      <div id="method-i-year" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">year</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an integer containing the year (CCYY) the movie was released in.</p>
+          
+
+          
+          <div class="method-source-code" id="year-source">
+            <pre><span class="ruby-comment"># File lib/imdb/movie.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">year</span>
+  <span class="ruby-identifier">document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-string">'a[@href^=&quot;/year/&quot;]'</span>).<span class="ruby-identifier">innerHTML</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- year-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- year-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.11.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+
