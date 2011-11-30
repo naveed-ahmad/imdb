@@ -79,7 +79,116 @@
   </div>
 </nav>
 
-<p>This is the API documentation for imdb 0.6.7 documentation.
+<div id="documentation" class="description">
+  
+<h1 id="label-imdb">imdb</h1>
+<dl class="rdoc-list note-list"><dt>home 
+<dd>
+<p><a href="http://github.com/ariejan/imdb">github.com/ariejan/imdb</a></p>
+</dd><dt>rdoc 
+<dd>
+<p><a href="http://ariejan.github.com/imdb/">ariejan.github.com/imdb/</a></p>
+</dd><dt>bugs 
+<dd>
+<p><a
+href="http://github.com/ariejan/imdb/issues">github.com/ariejan/imdb/issues</a></p>
+</dd></dl>
+
+<h2 id="label-Description">Description</h2>
+
+<p>This gem allows you to easy access publicly available data from IMDB.</p>
+
+<h2 id="label-Features">Features</h2>
+
+<p>IMDB currently features the following:</p>
+<ul><li>
+<p>Querying details movie info</p>
+</li><li>
+<p>Searching for movies</p>
+</li><li>
+<p>Command-line utility included.</p>
+</li></ul>
+
+<h2 id="label-Synopsis">Synopsis</h2>
+
+<p>Movies:</p>
+
+<pre class="ruby"><span class="ruby-identifier">i</span> = <span class="ruby-constant">Imdb</span><span class="ruby-operator">::</span><span class="ruby-constant">Movie</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;0095016&quot;</span>)
+
+<span class="ruby-identifier">i</span>.<span class="ruby-identifier">title</span>
+<span class="ruby-comment">#=&gt; &quot;Die Hard&quot;</span>
+<span class="ruby-identifier">i</span>.<span class="ruby-identifier">cast_members</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-comment">#=&gt; &quot;Bruce Willis&quot;</span>
+</pre>
+
+<p>Searching:</p>
+
+<pre class="ruby"><span class="ruby-identifier">i</span> = <span class="ruby-constant">Imdb</span><span class="ruby-operator">::</span><span class="ruby-constant">Search</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&quot;Star Trek&quot;</span>)
+
+<span class="ruby-identifier">i</span>.<span class="ruby-identifier">movies</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-comment">#=&gt; 97</span>
+</pre>
+
+<p>Using the command line utility is quite easy:</p>
+
+<pre>$ imdb Star Trek</pre>
+
+<p>or to get movie info</p>
+
+<pre>$ imdb 0095016</pre>
+
+<h2 id="label-Installation">Installation</h2>
+
+<pre>$ gem install imdb</pre>
+
+<h2 id="label-Documentation">Documentation</h2>
+
+<p>This <a href="README_rdoc.html">README</a> and generated RDoc documentation
+are available from <a
+href="http://ariejan.github.com/imdb/">ariejan.github.com/imdb/</a></p>
+
+<h2 id="label-Running+tests">Running tests</h2>
+
+<p>You’ll need rspec and fakeweb installed to run the specs.</p>
+
+<pre>$ bundle install
+$ bundle exec rake spec</pre>
+
+<p>Although not recommended, you may run the specs against the live imdb.com 
+website. This will make a lot of calls to imdb.com, use it wisely.</p>
+
+<pre>$ LIVE_TEST=true bundle exec rake spec</pre>
+
+<p>To update the packaged fixtures files with actual imdb.com samples, use the
+fixtures:refresh rake task</p>
+
+<pre>$ bundle exec rake fixtures:refresh</pre>
+
+<h2 id="label-License">License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright © 2009 Ariejan de Vroom</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the ‘Software’),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</p>
+
+</div>
 
 
 <footer id="validator-badges">
