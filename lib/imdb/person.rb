@@ -1,7 +1,7 @@
 module Imdb
   # Represents someone on IMDB.com
   class Person
-    attr_accessor :id, :url, :name, :avatar_url
+    attr_accessor :id, :url, :name, :avatar_url, :bio, :images, :video_urls, :embed_video_urls
 
     # Initialize a new IMDB person object with it's IMDB id (as a String)
     #
@@ -48,12 +48,48 @@ module Imdb
 
     # Returns array of movies with person in some category, e.g. as an actor, director, etc.
     def movies_as(category)
-      movies = document.css("#filmo-head-#{category}").first.next_element.children.to_a
+      movies = document.css("#filmo-head-#{category.downcase}").first.next_element.children.to_a
       movies.reject! { |movie| movie.class == Nokogiri::XML::Text }
       movies.map do |movie|
         movie_id = movie.attr('id')[/\d+/]
         Movie.new(movie_id)
       end
+    end
+
+    def bio
+      unless @bio
+        bio_text = bio_document.css("#bio_content .soda p").inner_html.gsub(/<i.*/im, '').strip.imdb_unescape_html
+
+        @bio = if block_given?
+          yield bio_text
+        else
+          bio_text
+        end
+      end
+
+      @bio
+    end
+
+    def images(limit=10)
+      @images ||= photo_gallery_document.css("#media_index_thumbnail_grid a")[0..limit].map do |image_link|
+        large_url = "http://akas.imdb.com/#{image_link.attr('href')}"
+
+        { thumb: image_link.children[0].attr('src'), large: Nokogiri::HTML(open(large_url)).at("img#primary-img").attr('src')  } rescue {}
+      end rescue []
+    end
+
+    def video_urls
+      @videos ||= video_gallery_document.css(".results-item a:first-child").map do |video_link|
+        video_id = video_link.attr("data-video")
+          "http://akas.imdb.com/video/imdb/#{video_id}"
+      end rescue []
+    end
+
+    def embed_video_urls
+      @embed_videos ||= video_gallery_document.css(".results-item a:first-child").map do |video_link|
+        video_id = video_link.attr("data-video")
+        "http://www.imdb.com/video/imdb/#{video_id}/imdb/embed"
+      end rescue []
     end
 
     private
@@ -63,9 +99,28 @@ module Imdb
       @document ||= Nokogiri::HTML(Imdb::Person.find_by_id(@id))
     end
 
+    # Returns a new Nokogiri document for parsing.
+    def bio_document
+      @bio_document ||= Nokogiri::HTML(Imdb::Person.find_by_id(@id, 'bio'))
+    end
+
+    # Returns a new Nokogiri document for parsing.
+    def photo_gallery_document
+      @photo_gallery_document ||= Nokogiri::HTML(Imdb::Person.find_by_id(@id, 'mediaindex'))
+    end
+
+    # Returns a new Nokogiri document for parsing.
+    def video_gallery_document
+      @video_gallery_document ||= Nokogiri::HTML(Imdb::Person.find_by_id(@id, 'videogallery'))
+    end
+
     # Use HTTParty to fetch the raw HTML for this person.
-    def self.find_by_id(imdb_id)
-      open("http://akas.imdb.com/name/nm#{imdb_id}")
+    def self.find_by_id(imdb_id, page=nil)
+      unless page
+        open("http://akas.imdb.com/name/nm#{imdb_id}")
+      else
+        open("http://akas.imdb.com/name/nm#{imdb_id}/#{page}")
+      end
     end
 
     # Dynamic aliasing for movies_as method. e.g. movies_as_actor equals movies_as(:actor)
