@@ -1,7 +1,7 @@
 module Imdb
   # Represents someone on IMDB.com
   class Person
-    attr_accessor :id, :url, :name
+    attr_accessor :id, :url, :name, :avatar_url
 
     # Initialize a new IMDB person object with it's IMDB id (as a String)
     #
@@ -15,6 +15,11 @@ module Imdb
       @id = imdb_id
       @url = "http://akas.imdb.com/name/nm#{imdb_id}"
       @name = name.gsub(/"/, '').strip if name
+    end
+
+    # Returns the URL of person's avatar
+    def avatar_url
+      @avatar_url ||= document.at("#name-poster").attr('src')
     end
 
     # Returns a string containing the name
