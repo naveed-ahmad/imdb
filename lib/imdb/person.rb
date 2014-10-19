@@ -1,7 +1,7 @@
 module Imdb
   # Represents someone on IMDB.com
   class Person
-    attr_accessor :id, :url, :name, :avatar_url, :bio, :images, :video_urls, :embed_video_urls
+    attr_accessor :id, :url, :name, :avatar_url, :bio, :images, :video_urls
 
     # Initialize a new IMDB person object with it's IMDB id (as a String)
     #
@@ -81,14 +81,11 @@ module Imdb
     def video_urls
       @videos ||= video_gallery_document.css(".results-item a:first-child").map do |video_link|
         video_id = video_link.attr("data-video")
-          "http://akas.imdb.com/video/imdb/#{video_id}"
-      end rescue []
-    end
+        urls: {}
+         urls[:page]="http://akas.imdb.com/video/imdb/#{video_id}"
+         urls[:embed]="http://www.imdb.com/video/imdb/#{video_id}/imdb/embed"
 
-    def embed_video_urls
-      @embed_videos ||= video_gallery_document.css(".results-item a:first-child").map do |video_link|
-        video_id = video_link.attr("data-video")
-        "http://www.imdb.com/video/imdb/#{video_id}/imdb/embed"
+         urls
       end rescue []
     end
 
