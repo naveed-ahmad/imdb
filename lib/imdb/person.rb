@@ -12,10 +12,10 @@ module Imdb
     # accessor that needs the remote data, a HTTP request is made (once).
     #
     def initialize(imdb_id, preset_attributes = {})
-      @id = imdb_id
-      @url = "http://akas.imdb.com/name/nm#{imdb_id}"
+      @id  = imdb_id
+      @url = "http://akas.imdb.com/name/#{imdb_id}"
 
-      preset_attributes.keys.each_pair do |attr, val|
+      preset_attributes.each_pair do |attr, val|
         instance_variable_set "@#{attr}", val.to_s.gsub(/"/, '').strip if val rescue nil
       end
     end
@@ -64,10 +64,10 @@ module Imdb
         bio_text = bio_document.css("#bio_content .soda p").inner_html.gsub(/<i.*/im, '').strip.imdb_unescape_html
 
         @bio = if block_given?
-          yield bio_text
-        else
-          bio_text
-        end
+                 yield bio_text
+               else
+                 bio_text
+               end
       end
 
       @bio
@@ -77,19 +77,20 @@ module Imdb
       @images ||= photo_gallery_document.css("#media_index_thumbnail_grid a")[0..limit].map do |image_link|
         large_url = "http://akas.imdb.com/#{image_link.attr('href')}"
 
-        { thumb: image_link.children[0].attr('src'), large: Nokogiri::HTML(open(large_url)).at("img#primary-img").attr('src')  } rescue {}
+        { thumb: image_link.children[0].attr('src'), large: Nokogiri::HTML(open(large_url)).at("img#primary-img").attr('src') } rescue {}
       end rescue []
     end
 
     def video_urls
       @videos ||= video_gallery_document.css(".results-item a:first-child").map do |video_link|
-        video_id = video_link.attr("data-video")
-        urls = {}
-         urls[:page]="http://akas.imdb.com/video/imdb/#{video_id}"
-         urls[:embed]="http://www.imdb.com/video/imdb/#{video_id}/imdb/embed"
+        if video_id = video_link.attr("data-video")
+          urls        = {}
+          urls[:page] ="http://akas.imdb.com/video/imdb/#{video_id}"
+          urls[:embed]="http://www.imdb.com/video/imdb/#{video_id}/imdb/embed"
 
-         urls
-      end rescue []
+          urls
+        end
+      end.compact rescue []
     end
 
     private
@@ -117,9 +118,9 @@ module Imdb
     # Use HTTParty to fetch the raw HTML for this person.
     def self.find_by_id(imdb_id, page=nil)
       unless page
-        open("http://akas.imdb.com/name/nm#{imdb_id}")
+        open("http://akas.imdb.com/name/#{imdb_id}")
       else
-        open("http://akas.imdb.com/name/nm#{imdb_id}/#{page}")
+        open("http://akas.imdb.com/name/#{imdb_id}/#{page}")
       end
     end
 
