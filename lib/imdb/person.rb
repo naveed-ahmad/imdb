@@ -1,7 +1,7 @@
 module Imdb
   # Represents someone on IMDB.com
   class Person
-    attr_accessor :id, :url, :name, :avatar_url, :bio, :images, :video_urls
+    attr_accessor :id, :url, :name, :avatar_url, :bio, :images, :video_urls, :name_alias
 
     # Initialize a new IMDB person object with it's IMDB id (as a String)
     #
@@ -11,10 +11,13 @@ module Imdb
     # will be performed when a new object is created. Only when you use an
     # accessor that needs the remote data, a HTTP request is made (once).
     #
-    def initialize(imdb_id, name = nil)
+    def initialize(imdb_id, preset_attributes = {})
       @id = imdb_id
       @url = "http://akas.imdb.com/name/nm#{imdb_id}"
-      @name = name.gsub(/"/, '').strip if name
+
+      preset_attributes.keys.each_pair do |attr, val|
+        instance_variable_set "@#{attr}", val.to_s.gsub(/"/, '').strip if val rescue nil
+      end
     end
 
     # Returns the URL of person's avatar
@@ -81,7 +84,7 @@ module Imdb
     def video_urls
       @videos ||= video_gallery_document.css(".results-item a:first-child").map do |video_link|
         video_id = video_link.attr("data-video")
-        urls: {}
+        urls = {}
          urls[:page]="http://akas.imdb.com/video/imdb/#{video_id}"
          urls[:embed]="http://www.imdb.com/video/imdb/#{video_id}/imdb/embed"
 

@@ -31,6 +31,17 @@ module Imdb
       document.search('table.cast td.char').map { |link| link.content.strip } rescue []
     end
 
+    def cast_members_list
+      alias_names = cast_characters
+      list = []
+
+      cast_member_ids.each_with_index do |member_id, index|
+        list[index]= Person.new(member_id, name_alias: alias_names[index] )
+      end
+
+      list
+    end
+
     # Returns an array with cast members and characters
     def cast_members_characters(sep = '=>')
       memb_char = []
