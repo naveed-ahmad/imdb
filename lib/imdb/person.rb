@@ -22,7 +22,7 @@ module Imdb
 
     # Returns the URL of person's avatar
     def avatar_url
-      @avatar_url ||= document.at("#name-poster").attr('src')
+      @avatar_url ||= document.at("#name-poster").attr('src') rescue nil
     end
 
     # Returns a string containing the name
