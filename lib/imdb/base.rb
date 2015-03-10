@@ -31,6 +31,39 @@ module Imdb
       document.search('table.cast td.char').map { |link| link.content.strip } rescue []
     end
 
+    def list_of_cast_members
+      alias_names = cast_characters
+      list = []
+
+      cast_member_ids.each_with_index do |member_id, index|
+        list[index]= Person.new(member_id, name_alias: alias_names[index] )
+      end
+
+      list
+    end
+
+    # Returns the name of the director(s)
+    def list_of_directors
+      directors_list = []
+
+      fullcredits_document.search("h4[text()^='Directed by'] + table tbody tr td[class='name'] a").each_with_index do |director, index|
+        directors_list[index] = Person.new director['href'].sub(%r{^/name/(.*)/}, '\1').split("?").first, name: director.content.strip
+      end rescue []
+
+      directors_list
+    end
+
+    # Returns the names of Writers
+    def list_of_writers
+      writers_list = []
+
+      fullcredits_document.search("h4[text()^='Writing Credits'] + table tbody tr td[class='name'] a").each_with_index do |writer, i|
+        writers_list[i] = Person.new writer['href'].sub(%r{^/name/(.*)/}, '\1').split("?").first, name: writer.content.strip
+      end rescue []
+
+      writers_list
+    end
+
     # Returns an array with cast members and characters
     def cast_members_characters(sep = '=>')
       memb_char = []
@@ -40,9 +73,15 @@ module Imdb
       memb_char
     end
 
-    # Returns the name of the director
+    # Returns the name of the director(s)
     def director
-      document.search("h5[text()^='Director'] ~ div a").map { |link| link.content.strip } rescue []
+    	directors_list = []
+    	
+    	fullcredits_document.search("h4[text()^='Directed by'] + table tbody tr td[class='name']").each_with_index do |name, i|
+    		directors_list[i] = name.content.strip unless directors_list.include? name.content.strip
+    	end rescue []
+    
+    	directors_list
     end
 
     # Returns the names of Writers
