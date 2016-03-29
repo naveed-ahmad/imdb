@@ -19,7 +19,7 @@ module Imdb
 
     # Returns an array with cast members
     def cast_members
-      document.search('table.cast td.nm a').map { |link| link.content.strip } rescue []
+      document.search('table.cast_list td.nm a').map { |link| link.content.strip } rescue []
     end
 
     def cast_member_ids
@@ -93,6 +93,10 @@ module Imdb
       end rescue []
 
       writers_list
+    end
+
+    def plot_keywords
+      keywords_document.search(".sodatext a").map { |link| link.content.strip } rescue []
     end
 
     # Returns the url to the "Watch a trailer" page
@@ -207,7 +211,9 @@ module Imdb
     end
 
     private
-
+    def keywords_document
+      @keywords_document ||= Nokogiri::HTML(Imdb::Movie.find_by_id(@id, 'keywords'))
+    end
     # Returns a new Nokogiri document for parsing.
     def document
       @document ||= Nokogiri::HTML(Imdb::Movie.find_by_id(@id))
