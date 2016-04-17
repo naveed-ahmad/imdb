@@ -210,6 +210,16 @@ module Imdb
       end rescue []
     end
 
+    # Returns alternative titles from imdb_url/releaseinfo
+    def release_dates
+      releaseinfo_document.search('#release_dates tr').map do |aka|
+        {
+            country: aka.search('td:nth-child(1)').text,
+            date:   sanitize_release_date(aka.search('td:nth-child(2)')).text
+        }
+      end rescue []
+    end
+
     private
     def keywords_document
       @keywords_document ||= Nokogiri::HTML(Imdb::Movie.find_by_id(@id, 'keywords'))
