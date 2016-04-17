@@ -215,7 +215,7 @@ module Imdb
       releaseinfo_document.search('#release_dates tr').map do |aka|
         {
             country: aka.search('td:nth-child(1)').text,
-            date:   sanitize_release_date(aka.search('td:nth-child(2)')).text
+            date:  aka.search('td:nth-child(2)').text
         }
       end rescue []
     end
