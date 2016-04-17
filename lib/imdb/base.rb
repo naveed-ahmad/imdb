@@ -207,7 +207,7 @@ module Imdb
           version: aka.search('td:nth-child(1)').text,
           title:   aka.search('td:nth-child(2)').text
         }
-      end rescue []
+      end
     end
 
     # Returns alternative titles from imdb_url/releaseinfo
@@ -217,7 +217,7 @@ module Imdb
             country: aka.search('td:nth-child(1)').text,
             date:  aka.search('td:nth-child(2)').text
         }
-      end rescue []
+      end
     end
 
     private
