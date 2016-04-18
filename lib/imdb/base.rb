@@ -210,6 +210,18 @@ module Imdb
       end
     end
 
+    def budget
+
+    end
+
+    def revenue
+
+    end
+
+    def status
+      document.at("h5[text()*='Status'] ~ div").text().split('|').first.strip rescue nil
+    end
+
     # Returns alternative titles from imdb_url/releaseinfo
     def release_dates
       releaseinfo_document.search('#release_dates tr').map do |aka|
