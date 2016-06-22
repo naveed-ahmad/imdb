@@ -41,6 +41,10 @@ module Imdb
       nil
     end
 
+    def quotes
+      quotes_document.search(".quotes p").map {|a|a.text.squeeze("\s").strip} rescue []
+    end
+
     # Returns a string containing the name
     def name(force_refresh = false)
       if @name && !force_refresh
@@ -129,6 +133,10 @@ module Imdb
     # Returns a new Nokogiri document for parsing.
     def video_gallery_document
       @video_gallery_document ||= Nokogiri::HTML(Imdb::Person.find_by_id(@id, 'videogallery'))
+    end
+
+    def quotes_document
+      @quote_document ||=  Nokogiri::HTML(open("http://m.imdb.com/name/#{@id}/quotes"))
     end
 
     # Use HTTParty to fetch the raw HTML for this person.
