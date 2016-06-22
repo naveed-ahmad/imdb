@@ -30,7 +30,7 @@ module Imdb
     end
 
     def star
-      document.at("#dyk-star-sign a").text.to_s.strip
+      document.at("#dyk-star-sign a").text.to_s.strip rescue nil
     end
 
     def height
